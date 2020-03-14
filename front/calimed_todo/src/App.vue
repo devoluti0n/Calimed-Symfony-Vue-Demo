@@ -9,6 +9,7 @@
               :onTodoAdded="onTodoAdded"
               :onTodoRemoved="onTodoRemoved"
               :onTodoClicked="onTodoClicked"
+              :onTodoEdited="onTodoEdited"
             />
           </div>
         </div>
@@ -53,11 +54,21 @@ export default {
       });
     },
 
-    onTodoClicked(id) {
+    onTodoClicked(id, done) {
       for (let i = 0; i < this.todos.length; i++) {
         let todo = this.todos[i];
         if (todo.id === id) {
-          this.$set(this.todos[i], 'done', !todo.done);
+          this.$set(this.todos[i], 'done', done);
+          break;
+        }
+      }
+    },
+    onTodoEdited(id, item) {
+      for (let i = 0; i < this.todos.length; i++) {
+        let todo = this.todos[i];
+        if (todo.id === id) {
+          console.log(item);
+          this.$set(this.todos[i], 'item', item);
           break;
         }
       }

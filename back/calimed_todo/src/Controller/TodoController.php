@@ -87,22 +87,32 @@ class TodoController extends AbstractController
     }
 
     /**
-      * @Route("/api/toggle/{id}", methods={"PUT"})
+      * @Route("/api/edit/{id}", methods={"POST"})
       */
-    public function toggle(int $id)
+    public function edit(Request $request, int $id)
     {
         $repository = $this->getDoctrine()->getRepository(Todo::class);
+
+        $item = $request->request->get('item');
+        $done = $request->request->get('done');
         
         try {
             $todo = $repository->find($id);
-            $todo->setDone(!$todo->getDone());
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($todo);
-            $entityManager->flush();
+            if ($item != null)
+                $todo->setItem($item);
+
+            if ($done != null)
+                $todo->setDone($done);
+
+            if ($item != null || $done != null) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($todo);
+                $entityManager->flush();
+            }
 
         } catch (\Throwable $th) {
-            return $this->json("error", 500);
+            return $this->json($th, 500);
         }
         
         return $this->json($id);

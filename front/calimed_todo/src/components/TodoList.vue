@@ -13,6 +13,7 @@
             :todo="todo"
             :onTodoRemoved="onTodoRemoved"
             :onTodoClicked="onTodoClicked"
+            :onTodoEdited="onTodoEdited"
             class="list-complete-item"
           />
         </transition-group>
@@ -61,6 +62,7 @@ export default {
     onTodoAdded: Function,
     onTodoRemoved: Function,
     onTodoClicked: Function,
+    onTodoEdited: Function,
   },
   components: {
     TodoListItem
