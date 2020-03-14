@@ -67,7 +67,6 @@ export default {
       for (let i = 0; i < this.todos.length; i++) {
         let todo = this.todos[i];
         if (todo.id === id) {
-          console.log(item);
           this.$set(this.todos[i], 'item', item);
           break;
         }

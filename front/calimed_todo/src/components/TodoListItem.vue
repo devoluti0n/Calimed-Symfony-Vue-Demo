@@ -24,7 +24,7 @@
                 class="input"
                 type="text"
                 v-model="newValue"
-                placeholder="Add Todo..."
+                placeholder="Edit Todo..."
                 v-on:click="evt => evt.stopPropagation()"
               />
             </div>

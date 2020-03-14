@@ -33,13 +33,13 @@
           <p class="card-footer-item">
             <span>
               View on
-              <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+              <a href="https://github.com/devoluti0n/Calimed-Symfony-Vue-Demo">Github</a>
             </span>
           </p>
           <p class="card-footer-item">
             <span>
-              Share on
-              <a href="#">Facebook</a>
+              Check my
+              <a href="https://www.linkedin.com/in/alann-sapone/">LinkedIn</a>
             </span>
           </p>
         </footer>
