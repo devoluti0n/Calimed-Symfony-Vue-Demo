@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  myapp:
+    build: ./
+    ports:
+      - '80:8080'
+    volumes:
+      - .:/app:cached
+    command: bash -c "yarn && yarn serve"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
